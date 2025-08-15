@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Mini-Games Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Menu Screen -->
+        <div id="main-menu" class="screen active">
+            <div class="container">
+                <h1 class="game-title">🍄 MARIO MINI-GAMES 🍄</h1>
+                <p class="subtitle">Choose your adventure!</p>
+                
+                <div class="games-grid">
+                    <div class="game-card" data-game="platformer">
+                        <div class="game-icon">🎯</div>
+                        <h3>Super Platformer</h3>
+                        <p>Jump and collect coins!</p>
+                        <button class="play-btn">PLAY</button>
+                    </div>
+                    
+                    <div class="game-card" data-game="collector">
+                        <div class="game-icon">💰</div>
+                        <h3>Coin Rush</h3>
+                        <p>Collect as many coins as possible!</p>
+                        <button class="play-btn">PLAY</button>
+                    </div>
+                    
+                    <div class="game-card" data-game="puzzle">
+                        <div class="game-icon">🧩</div>
+                        <h3>Block Puzzle</h3>
+                        <p>Solve the Mario blocks!</p>
+                        <button class="play-btn">PLAY</button>
+                    </div>
+                    
+                    <div class="game-card coming-soon">
+                        <div class="game-icon">🔒</div>
+                        <h3>Coming Soon</h3>
+                        <p>More games on the way!</p>
+                        <button class="play-btn" disabled>LOCKED</button>
+                    </div>
+                </div>
+                
+                <div class="high-scores">
+                    <h3>🏆 High Scores</h3>
+                    <div id="scores-list">
+                        <div class="score-item">Platformer: <span id="platformer-score">0</span></div>
+                        <div class="score-item">Coin Rush: <span id="collector-score">0</span></div>
+                        <div class="score-item">Block Puzzle: <span id="puzzle-score">0</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <button id="back-btn" class="nav-btn">← BACK</button>
+                <div class="game-info">
+                    <span id="current-game-title">Game Title</span>
+                    <span id="current-score">Score: 0</span>
+                </div>
+                <button id="restart-btn" class="nav-btn">🔄 RESTART</button>
+            </div>
+            
+            <div class="game-container">
+                <canvas id="game-canvas"></canvas>
+            </div>
+            
+            <div class="game-controls">
+                <div class="mobile-controls">
+                    <button class="control-btn" id="left-btn">←</button>
+                    <button class="control-btn" id="jump-btn">🔺</button>
+                    <button class="control-btn" id="right-btn">→</button>
+                </div>
+                <div class="instructions">
+                    <p>Desktop: Use arrow keys and spacebar | Mobile: Use buttons below</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="screen">
+            <div class="container">
+                <h2>🎮 GAME OVER 🎮</h2>
+                <div id="final-score-display">
+                    <p>Final Score: <span id="final-score">0</span></p>
+                    <p id="high-score-message"></p>
+                </div>
+                <div class="game-over-actions">
+                    <button id="play-again-btn" class="action-btn">PLAY AGAIN</button>
+                    <button id="menu-btn" class="action-btn">MAIN MENU</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/gameEngine.js"></script>
+    <script src="js/games/platformer.js"></script>
+    <script src="js/games/collector.js"></script>
+    <script src="js/games/puzzle.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
